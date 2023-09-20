@@ -35,7 +35,7 @@ public class OpenAI implements IOpenAI {
     @Value("${chat-bot.closeAiKey}")
     private String closeAiKey;
     @Override
-    public String getAnswer(String question) throws IOException {
+    public Answer getAnswer(String question) throws IOException {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         HttpPost httpPost = new HttpPost("https://api.closeai-asia.com/v1/chat/completions");
         httpPost.addHeader("Content-Type","application/json");
@@ -49,12 +49,7 @@ public class OpenAI implements IOpenAI {
         CloseableHttpResponse response = httpClient.execute(httpPost);
         if (response.getStatusLine().getStatusCode()== HttpStatus.SC_OK){
             String jsonStr = EntityUtils.toString(response.getEntity());
-            Answer  answer = JSON.parseObject(jsonStr, Answer.class);
-            StringBuilder answers = new StringBuilder();
-            for (Choices choice : answer.getChoices()) {
-                answers.append(choice);
-            }
-            return answers.toString();
+            return JSON.parseObject(jsonStr, Answer.class);
         }else {
             System.out.println(response.getStatusLine().getStatusCode());
         }

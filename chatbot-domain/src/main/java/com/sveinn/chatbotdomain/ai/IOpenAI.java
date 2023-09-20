@@ -11,5 +11,5 @@ import java.io.IOException;
  */
 
 public interface IOpenAI {
-   public String getAnswer(String question) throws IOException;
+   public Answer getAnswer(String question) throws IOException;
 }

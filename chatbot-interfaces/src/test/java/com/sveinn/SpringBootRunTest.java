@@ -1,10 +1,10 @@
-package com.sveinn.chatbotinterfaces;
+package com.sveinn;
 
 
 
 import com.alibaba.fastjson.JSON;
+import com.sveinn.chatbotdomain.ai.model.aggregates.Answer;
 import com.sveinn.chatbotdomain.ai.service.OpenAI;
-import com.sveinn.chatbotdomain.zsxq.IZsxqApi;
 import com.sveinn.chatbotdomain.zsxq.module.aggregates.UnAnsweredQuestionsAggregates;
 import com.sveinn.chatbotdomain.zsxq.module.vo.Topics;
 import com.sveinn.chatbotdomain.zsxq.service.ZsxqApi;
@@ -57,8 +57,8 @@ public class SpringBootRunTest {
     }
     @Test
     public void testCloseAI() throws IOException {
-        String result = openAI.getAnswer("用java写一个冒泡排序");
-        logger.error("返回值{}"+result);
+        Answer answer = openAI.getAnswer("用java写一个冒泡排序");
+        logger.error("返回值{}",answer);
     }
 
 }

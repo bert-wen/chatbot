@@ -1,4 +1,4 @@
-package com.sveinn.chatbotinterfaces;
+package com.sveinn;
 
 import cn.hutool.core.util.HexUtil;
 import org.apache.http.HttpStatus;

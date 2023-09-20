@@ -1,5 +1,6 @@
 package com.sveinn.chatbotdomain.ai.model.vo;
 
+import com.sveinn.chatbotdomain.ai.model.aggregates.Message;
 import lombok.Data;
 
 /**
@@ -14,6 +15,6 @@ import lombok.Data;
 @Data
 public class Choices {
     private String index;
-    private String message;
     private String content;
+    private Message message;
 }

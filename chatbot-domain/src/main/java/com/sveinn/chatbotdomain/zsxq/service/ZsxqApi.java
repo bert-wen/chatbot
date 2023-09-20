@@ -46,7 +46,7 @@ public class ZsxqApi implements IZsxqApi {
         CloseableHttpResponse response = httpClient.execute(get);
         if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
             String jsonStr = EntityUtils.toString(response.getEntity());
-            logger.info("拉取提问数据。groupId：{} jsonStr：{}", groupId, jsonStr);
+            logger.info("拉取提问数据groupId：{} jsonStr：{}", groupId, jsonStr);
             return JSON.parseObject(jsonStr, UnAnsweredQuestionsAggregates.class);
         } else {
             throw new RuntimeException("queryUnAnsweredQuestionsTopicId Err Code is " + response.getStatusLine().getStatusCode());
